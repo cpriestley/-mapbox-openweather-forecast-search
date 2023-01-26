@@ -166,4 +166,7 @@ Temporary Items
 .history
 .ionide
 
+# API Keys
+js/keys.js
+
 # End of https://www.toptal.com/developers/gitignore/api/macos,intellij,visualstudiocode

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Breezy Forecasts</title>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'/>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- Mapbox CSS-->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/weather-map.css">
+    <script src="js/jquery-3.6.3.js"></script>
+
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light text-light bg-black d-flex justify-content-center">
+        <button class="navbar-toggler text-light" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon text-light"></span>
+        </button>
+        <div class="input-group w-25">
+            <input type="search" class="form-control" placeholder="City" aria-label="City"
+                   aria-describedby="search-btn">
+            <button class="btn btn-outline-secondary" type="button" id="search-btn">Search</button>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="container py-5 m-auto border-bottom">
+        <h1 class="text-center">Breezy Forecasts</h1>
+        <h3 class="text-center">Whether or Knot</h3>
+    </div>
+    <div class="container visually-hidden">
+        <h2 id="exercise">Exercise</h2>
+    </div>
+    <div class="container visually-hidden">
+        <ol>
+            <li>Create a new HTML file called <code>weather_map.html</code>.</li>
+            <li>As you complete each step, commit your changes and push them to GitHub.</li>
+            <li>Using HTML, CSS, jQuery, AJAX, and the OpenWeatherMap API, start by showing the current conditions for
+                city
+                you live in on your page.
+            </li>
+            <li>Update your layout and AJAX request(s) to display a five-day forecast for the city you live in that
+                looks
+                like the screenshot below.
+            </li>
+            <li>If you want to add the icons the URLs for OpenWeatherMap's icons are formatted like: <code>https://openweathermap.org/img/w/[icon].png</code>
+                where <code>[icon]</code> comes from the API response.
+            </li>
+            <li>Refer to your Mapbox API exercise. Recreate the map below your 5-day forecast. Read through the
+                documentation for the Mapbox API and figure out how to allow the user to drop a pin on any place on the
+                map.
+                Once the user drops a pin, grab its coordinates and feed those into your OpenWeatherMap API. Update the
+                five-day forecast with the information from those coordinates (you should also get rid of your input
+                boxes
+                at this point).
+            </li>
+            <li>Add a Mapbox text input to search by location and have the forecast update when a new location is
+                searched.
+            </li>
+            <li>As a <strong>bonus</strong> make sure you can update the marker's position to the new search result.
+            </li>
+        </ol>
+    </div>
+    <div class="container mt-3">
+        <h1 class="text-center p-3">San Antonio, TX</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div id="weather" class="col-md-5 m-auto px-5">
+                <h2>Current Weather</h2>
+                <p>Temperature: 72°F</p>
+                <p>High: 72°F</p>
+                <p>Low: 72°F</p>
+                <p>Humidity: 60%</p>
+                <p>Atmospheric Pressure: 1000</p>
+                <p>Description: Partly Cloudy</p>
+            </div>
+
+            <div class="col-md-7 border-start p-4">
+                <h2 class="text-center">5-Day Forecast</h2>
+                <table class="table">
+                    <tr>
+                        <th>Day</th>
+                        <th>Temperature</th>
+                        <th>Humidity</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>Monday</td>
+                        <td>75°F</td>
+                        <td>65%</td>
+                        <td>Sunny</td>
+                    </tr>
+                    <tr>
+                        <td>Tuesday</td>
+                        <td>80°F</td>
+                        <td>70%</td>
+                        <td>Partly Cloudy</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>78°F</td>
+                        <td>68%</td>
+                        <td>Mostly Sunny</td>
+                    </tr>
+                    <tr>
+                        <td>Thursday</td>
+                        <td>77°F</td>
+                        <td>70%</td>
+                        <td>Scattered Thunderstorms</td>
+                    </tr>
+                    <tr>
+                        <td>Friday</td>
+                        <td>75°F</td>
+                        <td>65%</td>
+                        <td>Partly Cloudy</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container mb-5 border py-4 w-50 shadow-lg" id="mapBox">
+        <h2 class="text-center mb-3">Cafe Du Monde</h2>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Restaurant Name">
+            <button class="btn btn-outline-secondary" type="button" id="search">search</button>
+        </div>
+        <div id="map" class="m-auto shadow"></div>
+        <div class="m-auto">
+            <label for="zoomRange" class="form-label text-center fw-bold w-100 mt-2">Zoom Level (5 -
+                20)</label>
+            <input type="range" class="form-range w-100" min="5" max="20" step="5" value="5" list="markers"
+                   id="zoomRange">
+            <datalist id="markers">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </datalist>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="container d-flex justify-content-evenly text-secondary border-top border-bottom py-3">
+        <div>
+            <pre>&copy; 2023 - My Tool Store   |   Clayton O. Priestley</pre>
+        </div>
+    </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous"></script>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js'></script>
+<script src="js/main.js"></script>
+</body>
+</html>
