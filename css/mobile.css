@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+:root {
+    --bs-blue: #0d6efd;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+    --bs-gray-dark: #343a40;
+    --bs-primary: #007FA3;
+    --bs-secondary: #6c757d;
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: #ffc107;
+    --bs-danger: #dc3545;
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+}
+.bg-gray {
+    background-color: var(--bs-gray-dark) !important;
+}
+
+/* What do you have to be scared of?
+ *
+ * Lorin Tackett, July 2013
+ * http://lorintackett.com
+ */
+@keyframes clouds-loop-1 {
+    to {
+        background-position: -1000px 0;
+    }
+}
+
+.clouds-1 {
+    background-image: url("https://s.cdpn.io/15514/clouds_2.png");
+    animation: clouds-loop-1 20s infinite linear;
+}
+
+@keyframes clouds-loop-2 {
+    to {
+        background-position: -1000px 0;
+    }
+}
+
+.clouds-2 {
+    background-image: url("https://s.cdpn.io/15514/clouds_1.png");
+    animation: clouds-loop-2 15s infinite linear;
+}
+
+@keyframes clouds-loop-3 {
+    to {
+        background-position: -1579px 0;
+    }
+}
+
+.clouds-3 {
+    background-image: url("https://s.cdpn.io/15514/clouds_3.png");
+    animation: clouds-loop-3 17s infinite linear;
+}
+
+main::before {
+    display: block;
+    content: '';
+    height: 15em;
+}
+
+header {
+    height: 16em;
+}
+
+header {
+    transition: 0.7s; /* Add a transition effect (when scrolling - and font size is decreased) */
+}
+header>div {
+    transition: 0.7s; /* Add a transition effect (when scrolling - and font size is decreased) */
+}
+header>div>button {
+    transition: 0.7s; /* Add a transition effect (when scrolling - and font size is decreased) */
+}
+#clouds {
+    transition: 0.7s; /* Add a transition effect (when scrolling - and font size is decreased) */
+}
+
+html, body {
+    background-attachment: fixed;
+    background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzMzMzMzMyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #333333), color-stop(100%, #000000));
+    background: -moz-linear-gradient(#333333, #000000);
+    background: -webkit-linear-gradient(#333333, #000000);
+    background: linear-gradient(#333333, #000000);
+}
+
+.clouds {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+    opacity: 0.4;
+    pointer-events: none;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+}
+
+.clouds-1,
+.clouds-2,
+.clouds-3 {
+    background-repeat: repeat-x;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 16em;
+}

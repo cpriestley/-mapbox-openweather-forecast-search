@@ -4,11 +4,14 @@ let map;
 mapboxgl.accessToken = MAPBOX_API_KEY;
 
 const mapbox = {
-
+    resize: function () {
+        map.resize();
+    },
     init: function () {
         map = new mapboxgl.Map({
             container: "map", // container ID
-            style: 'mapbox://styles/mapbox/navigation-night-v1', // style URL
+            trackResize: true,
+            style: 'mapbox://styles/mapbox/streets-v12', // style URL
             zoom: 0.25 // starting zoom
         }).addControl(new mapboxgl.NavigationControl());
     },
