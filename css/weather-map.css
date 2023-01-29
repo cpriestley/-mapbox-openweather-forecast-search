@@ -1,6 +1,28 @@
+body {
+    /*force footer to bottom with grid*/
+    display: grid;
+    gap: 30px;
+}
+
+.cp-shadow, .sm-shadow {
+    border: black solid thin !important;
+    box-shadow: 0.5em 0.5em 0.5em !important;
+}
+
+main {
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 30px;
+}
+
 #map {
     width: 400px;
     height: 225px;
+}
+
+#myChart {
+    width: 100% !important;
+    height: 150px !important;
 }
 
 .small-card {

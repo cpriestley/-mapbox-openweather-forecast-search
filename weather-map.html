@@ -3,9 +3,8 @@
 <head>
     <title>Breezy Forecasts</title>
     <meta charset="UTF-8">
-    <meta charset="utf-8">
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'/>
-    <!-- CSS only -->
+    <!-- Bootstrap CSS only -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
           integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- Mapbox CSS-->
@@ -13,18 +12,18 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/weather-map.css">
     <script src="js/jquery-3.6.3.js"></script>
-
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light text-light bg-black d-flex">
+    <!--Navigation-->
+    <nav class="navbar navbar-collapse navbar-expand-lg navbar-light text-light bg-black d-flex cp-shadow" id="navbarNav">
         <button class="navbar-toggler text-light" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon text-light"></span>
+            <span class="navbar-toggler-icon d-none text-light"></span>
         </button>
         <div class="d-flex w-100">
             <div class="col w-25 me-5">
-                <a class="navbar-brand text-light" href="#">Breezy Forecasts</a>
+                <a class="navbar-brand text-light ms-2" href="#" id="breezy">Breezy Forecasts</a>
             </div>
             <div class="col w-25 mx-5 input-group">
                 <input type="search" class="form-control" placeholder="City" aria-label="City">
@@ -35,26 +34,26 @@
     </nav>
 </header>
 <main>
-    <div class="d-grid col-11 mx-auto mt-3">
-        <div class="d-flex row mb-3">
-            <div class="card col me-3 shadow py-4">
+    <div class="d-grid col-11 mx-auto">
+        <div class="d-flex row">
+            <div class="card col me-3 cp-shadow py-4">
                 <div class="card-body d-flex justify-content-start">
                     <div class="align-self-center" style="height: 200px; width: 200px;">
-                        <img src="media/10d@4x.png" alt="">
+                        <img src="media/10n@4x.png" alt="">
                     </div>
                     <div class="fs-1 align-self-center">58</div>
                     <div class="fs-4 align-self-center">&deg;F</div>
-                    <div class="align-self-center ps-4 w-100">
+                    <div class="align-self-center ps-4 w-100" >
                         <p class="py-0 my-0 fw-light">Precipitation: 0%</p>
                         <p class="py-0 my-0 fw-light">Humidty: 36%</p>
                         <p class="py-0 my-0 fw-light">Wind: 5mph</p>
                     </div>
                 </div>
             </div>
-            <div class="card col mx-3 shadow py-4">
+            <div class="card col mx-3 cp-shadow py-4">
                 <div id="map" class="m-auto"></div>
             </div>
-            <div class="card col ms-3 shadow py-4 text-end">
+            <div class="card col ms-3 cp-shadow py-4 text-end">
                 <div class="card-body d-flex flex-column justify-content-center align-items-end">
                     <p class="fs-2 my-0">San Antonio, TX</p>
                     <p class="my-0">Thursday</p>
@@ -62,60 +61,62 @@
                 </div>
             </div>
         </div>
-        <div class="row shadow mb-3">
+    </div>
+    <div class="d-grid col-11 mx-auto">
+        <div class="row cp-shadow">
             <div class="card col">
                 <div class="card-body">
-                    <canvas id="myChart" style="width:100%; height: 200px;"></canvas>
+                    <canvas id="myChart" style="width: 100%; height: 150px;"></canvas>
                 </div>
             </div>
         </div>
     </div>
-    <div class="d-grid col-11 mx-auto mb-3" id="forecast">
+    <div class="d-grid col-11 mx-auto" id="forecast">
         <div class="d-flex row">
-            <div class="col card me-2 align-self-center shadow">
+            <div class="col card me-2 align-self-center sm-shadow">
                 <div class="card-body text-center">
                     <p class="m-0">Thu</p>
-                    <p class="m-0"><img src="media/01d@4x.png" style="width: 100px; height: 100px;" alt=""></p>
+                    <p class="m-0"><img src="media/01n@4x.png" style="width: 100px; height: 100px;" alt=""></p>
                     <div class="m-0 d-flex justify-content-around">
                         <p>74&deg;F</p>
                         <p>55&deg;F</p>
                     </div>
                 </div>
             </div>
-            <div class="col card mx-2 align-self-center shadow">
+            <div class="col card mx-2 align-self-center sm-shadow">
                 <div class="card-body text-center">
                     <p class="m-0">Thu</p>
-                    <p class="m-0"><img src="media/01d@4x.png" style="width: 100px; height: 100px;" alt=""></p>
+                    <p class="m-0"><img src="media/01n@4x.png" style="width: 100px; height: 100px;" alt=""></p>
                     <div class="m-0 d-flex justify-content-around">
                         <p>74&deg;F</p>
                         <p>55&deg;F</p>
                     </div>
                 </div>
             </div>
-            <div class="col card mx-2 align-self-center shadow">
+            <div class="col card mx-2 align-self-center sm-shadow">
                 <div class="card-body text-center">
                     <p class="m-0">Thu</p>
-                    <p class="m-0"><img src="media/01d@4x.png" style="width: 100px; height: 100px;" alt=""></p>
+                    <p class="m-0"><img src="media/01n@4x.png" style="width: 100px; height: 100px;" alt=""></p>
                     <div class="m-0 d-flex justify-content-around">
                         <p>74&deg;F</p>
                         <p>55&deg;F</p>
                     </div>
                 </div>
             </div>
-            <div class="col card mx-2 align-self-center shadow">
+            <div class="col card mx-2 align-self-center sm-shadow">
                 <div class="card-body text-center">
                     <p class="m-0">Thu</p>
-                    <p class="m-0"><img src="media/01d@4x.png" style="width: 100px; height: 100px;" alt=""></p>
+                    <p class="m-0"><img src="media/01n@4x.png" style="width: 100px; height: 100px;" alt=""></p>
                     <div class="m-0 d-flex justify-content-around">
                         <p>74&deg;F</p>
                         <p>55&deg;F</p>
                     </div>
                 </div>
             </div>
-            <div class="col card ms-2 align-self-center shadow">
+            <div class="col card ms-2 align-self-center sm-shadow">
                 <div class="card-body text-center">
                     <p class="m-0">Thu</p>
-                    <p class="m-0"><img src="media/01d@4x.png" style="width: 100px; height: 100px;"  alt=""></p>
+                    <p class="m-0"><img src="media/01n@4x.png" style="width: 100px; height: 100px;"  alt=""></p>
                     <div class="m-0 d-flex justify-content-around">
                         <p>74&deg;F</p>
                         <p>55&deg;F</p>
@@ -181,9 +182,9 @@
     </div>-->
 </main>
 <footer>
-    <div class="container d-flex justify-content-evenly text-secondary border-top border-bottom py-3">
+    <div class="container d-flex justify-content-evenly border-top border-bottom text-secondary py-3">
         <div class="align-self-center">
-            <pre class="my-0">&copy; 2023 - My Tool Store   |   Clayton O. Priestley</pre>
+            <pre class="my-0">&copy; 2023 - Weather or Not Inc.   |   Clayton O. Priestley</pre>
         </div>
     </div>
 </footer>
