@@ -13,7 +13,12 @@ const mapbox = {
             trackResize: true,
             style: 'mapbox://styles/mapbox/streets-v12', // style URL
             zoom: 0.25 // starting zoom
-        }).addControl(new mapboxgl.NavigationControl());
+        })
+        .addControl(new mapboxgl.NavigationControl())
+        /*.addControl(new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            mapboxgl: mapboxgl
+        }))*/;
     },
 
     flyToLocation: function (coordinates) {
@@ -22,9 +27,9 @@ const mapbox = {
             center: coordinates,
             zoom: 8,
         });
-        // new mapboxgl.Marker()
-        //     .setLngLat(coordinates)
-        //     .addTo(map);
+        new mapboxgl.Marker()
+            .setLngLat(coordinates)
+            .addTo(map);
     }
 }
 

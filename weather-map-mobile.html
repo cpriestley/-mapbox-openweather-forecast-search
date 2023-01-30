@@ -23,49 +23,52 @@
     <div class='clouds-2'></div>
     <div class='clouds-3'></div>
 </div>
-<header id="header" class="text-white d-flex align-items-end position-fixed">
+<header id="header" class="text-white d-flex align-items-end position-fixed w-100">
     <div class="ms-5 d-flex display-1 align-items-center">
         <!-- Button trigger modal -->
         <button class="display-6 text-white mb-0 border-0 bg-transparent" type="button" data-bs-toggle="modal" data-bs-target="#fs-modal" id="btn-modal">
             <i class="fa fa-gear me-2"></i>
         </button>
-        <span>San Antonio, Texas</span>
+        <span id="location">San Antonio, Texas</span>
+        <!--    <button class="display-6 text-white mb-0 border-0 bg-transparent" type="button" data-bs-toggle="modal" data-bs-target="#fs-modal" id="btn-refresh">-->
+        <!--        <i class="fa fa-refresh me-2"></i>-->
+        <!--    </button>-->
     </div>
 </header>
 <main class="container d-grid gap-3 text-white">
     <div class="container-fluid bg-dark rounded-5 d-grid" id="top">
         <div class="container-fluid py-3 py-3 border-bottom" id="top-left">
-            <h1>54 &deg;</h1>
-            <p class="my-0">Drizzle</p>
-            <p class="my-0">Rain for 20m</p>
-            <p class="my-0">Air Quality: Fair(27)</p>
+            <h1 id="temp">54 &deg;</h1>
+            <p class="my-0" id="main">Drizzle</p>
+            <p class="my-0" id="description">Rain for 20m</p>
+            <p class="my-0" id="feels-like">Feels like 54 &deg;</p>
         </div>
         <div class="container-fluid py-3 d-flex justify-content-around text-center" id="top-forecast">
-            <div class="d-grid" id="day-1">
+            <div class="d-grid w-100" id="day-1" db-id="0">
                 <div>SUN</div>
                 <div><img src="./media/01d@4x.png" style="height:25px; width: 25px" alt=""></div>
                 <div>72</div>
                 <div>54</div>
             </div>
-            <div class="d-grid" id="day-2">
+            <div class="d-grid w-100" id="day-2" db-id="1">
                 <div>MON</div>
                 <div><img src="./media/01d@4x.png" style="height:25px; width: 25px" alt=""></div>
                 <div>55</div>
                 <div>41</div>
             </div>
-            <div class="d-grid" id="day-3">
+            <div class="d-grid w-100" id="day-3" db-id="2">
                 <div>TUE</div>
                 <div><img src="./media/01d@4x.png" style="height:25px; width: 25px" alt=""></div>
                 <div>46</div>
                 <div>42</div>
             </div>
-            <div class="d-grid" id="day-4">
+            <div class="d-grid w-100" id="day-4" db-id="3">
                 <div>WED</div>
                 <div><img src="./media/01d@4x.png" style="height:25px; width: 25px" alt=""></div>
                 <div>43</div>
                 <div>43</div>
             </div>
-            <div class="d-grid" id="day-5">
+            <div class="d-grid w-100" id="day-5" db-id="4">
                 <div>FRI</div>
                 <div><img src="./media/01d@4x.png" style="height:25px; width: 25px" alt=""></div>
                 <div>60</div>
@@ -73,70 +76,69 @@
             </div>
         </div>
         <div class="container-fluid py-3 d-flex justify-content-around">
-            <div class="bg-gray py-3 text-center text-info rounded-pill w-25">91%</div>
-            <div class="bg-gray py-3 text-center text-info rounded-pill w-25">0.01 in</div>
-            <div class="bg-gray py-3 text-center text-info rounded-pill w-25"> 27</div>
+            <div class="bg-gray py-3 text-center text-info rounded-pill w-25"><i class="fa-solid fa-cloud"></i> <span id="cloudiness">91%</span></div>
+            <div class="bg-gray py-3 text-center text-info rounded-pill w-25"><i class="fa-solid fa-droplet"></i> <span id="humidity"></span> 81%</div>
+            <div class="bg-gray py-3 text-center text-info rounded-pill w-25"><i class="fa-solid fa-wind"></i> <span id="wind">27 mph</span></div>
         </div>
     </div>
     <div class="container-fluid bg-dark rounded-5 d-grid py-4" id="middle">
-        <h6 class="text-uppercase">Saturday, January 28</h6>
-        <div class="d-flex justify-content-around">
-            <div class="col-1">12am</div>
-            <div class="col-1"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
-            <div class="col-1">58</div>
-            <div class="col-1">42</div>
+        <h6 class="text-uppercase ms-4 ps-1 mb-3" id="weekday-date">Saturday, January 28</h6>
+        <div class="d-flex justify-content-around" id="hr-1-detail">
+            <div class="col-1 text-nowrap">12am</div>
+            <div class="col-1 text-nowrap"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
+            <div class="col-1 text-nowrap">58</div>
+            <div class="col-1 text-nowrap">42</div>
             <div class="col-1 text-nowrap">3 mph</div>
         </div>
-        <div class="d-flex justify-content-around">
-            <div class="col-1">3am</div>
-            <div class="col-1"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
-            <div class="col-1">58</div>
-            <div class="col-1">42</div>
+        <div class="d-flex justify-content-around" id="hr-2-detail">
+            <div class="col-1 text-nowrap">3am</div>
+            <div class="col-1 text-nowrap"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
+            <div class="col-1 text-nowrap">58</div>
+            <div class="col-1 text-nowrap">42</div>
             <div class="col-1 text-nowrap">3 mph</div>
         </div>
-        <div class="d-flex justify-content-around">
-            <div class="col-1">6am</div>
-            <div class="col-1"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
-            <div class="col-1">58</div>
-            <div class="col-1">42</div>
+        <div class="d-flex justify-content-around" id="hr-3-detail" >
+            <div class="col-1 text-nowrap">6am</div>
+            <div class="col-1 text-nowrap"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
+            <div class="col-1 text-nowrap">58</div>
+            <div class="col-1 text-nowrap">42</div>
             <div class="col-1 text-nowrap">3 mph</div>
         </div>
-        <div class="d-flex justify-content-around">
-            <div class="col-1">9am</div>
-            <div class="col-1"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
-            <div class="col-1">58</div>
-            <div class="col-1">42</div>
+        <div class="d-flex justify-content-around" id="hr-4-detail" >
+            <div class="col-1 text-nowrap">9am</div>
+            <div class="col-1 text-nowrap"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
+            <div class="col-1 text-nowrap">58</div>
+            <div class="col-1 text-nowrap">42</div>
             <div class="col-1 text-nowrap">3 mph</div>
         </div>
-        <div class="d-flex justify-content-around">
-            <div class="col-1">12pm</div>
-            <div class="col-1"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
-            <div class="col-1">58</div>
-            <div class="col-1">42</div>
+        <div class="d-flex justify-content-around" id="hr-5-detail" >
+            <div class="col-1 text-nowrap">12pm</div>
+            <div class="col-1 text-nowrap"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
+            <div class="col-1 text-nowrap">58</div>
+            <div class="col-1 text-nowrap">42</div>
             <div class="col-1 text-nowrap">3 mph</div>
         </div>
-        <div class="d-flex justify-content-around">
-            <div class="col-1">3pm</div>
-            <div class="col-1"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
-            <div class="col-1">58</div>
-            <div class="col-1">42</div>
+        <div class="d-flex justify-content-around" id="hr-6-detail" >
+            <div class="col-1 text-nowrap">3pm</div>
+            <div class="col-1 text-nowrap"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
+            <div class="col-1 text-nowrap">58</div>
+            <div class="col-1 text-nowrap">42</div>
             <div class="col-1 text-nowrap">3 mph</div>
         </div>
-        <div class="d-flex justify-content-around">
-            <div class="col-1">6pm</div>
-            <div class="col-1"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
-            <div class="col-1">58</div>
-            <div class="col-1">42</div>
+        <div class="d-flex justify-content-around" id="hr-7-detail" >
+            <div class="col-1 text-nowrap">6pm</div>
+            <div class="col-1 text-nowrap"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
+            <div class="col-1 text-nowrap">58</div>
+            <div class="col-1 text-nowrap">42</div>
             <div class="col-1 text-nowrap">3 mph</div>
         </div>
-        <div class="d-flex justify-content-around">
-            <div class="col-1">9pm</div>
-            <div class="col-1"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
-            <div class="col-1">58</div>
-            <div class="col-1">42</div>
+        <div class="d-flex justify-content-around" id="hr-8-detail" >
+            <div class="col-1 text-nowrap">9pm</div>
+            <div class="col-1 text-nowrap"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
+            <div class="col-1 text-nowrap">58</div>
+            <div class="col-1 text-nowrap">42</div>
             <div class="col-1 text-nowrap">3 mph</div>
         </div>
-
     </div>
     <div class="container bg-dark rounded-5 d-grid p-0" id="bottom">
         <div class="rounded-5" id="map"></div>
@@ -147,7 +149,11 @@
     <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
             <div class="modal-header bg-dark text-white" data-bs-theme="dark">
-                <h5 class="modal-title h4" id="exampleModalFullscreenLabel">Full screen modal</h5>
+<!--                <h5 class="modal-title h4" id="exampleModalFullscreenLabel">Choose Location</h5>-->
+                <div class="w-100 mx-5 input-group d-flex justify-content-center">
+                    <input type="search" class="form-control" style="max-width: 250px;" placeholder="City" aria-label="City">
+                    <button class="btn btn-outline-secondary" type="button" id="search">Search</button>
+                </div>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-0">
@@ -158,6 +164,10 @@
     </div>
 </div>
 <footer></footer>
+<!-- Load the `mapbox-gl-geocoder` plugin. -->
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+<script src="https://kit.fontawesome.com/88c8d6fd3b.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
         crossorigin="anonymous"></script>
@@ -169,6 +179,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/chart.umd.js"></script>
 <script src="js/mapbox-geocoder-utils.js"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js'></script>
+<script type="module" src="js/map.js"></script>
 <script type="module" src="js/main.js"></script>
 <script type="module" src="js/main-mobile.js"></script>
 </body>

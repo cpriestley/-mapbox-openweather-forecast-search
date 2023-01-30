@@ -80,6 +80,13 @@ main::before {
     height: 15em;
 }
 
+div[id^='day-']:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: #6c757d thin solid;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
 header {
     height: 16em;
 }
