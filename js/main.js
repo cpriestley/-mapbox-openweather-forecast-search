@@ -1,5 +1,4 @@
 "use strict";
-import {chart} from "./chart.js";
 import {weather} from "./weather.js";
 import {mapbox} from "./map.js";
 
@@ -48,7 +47,16 @@ $(function () {
         });
 
         $("#search").click(function () {
-            geocode($(this).prev().val(), mapboxgl.accessToken)
+            refreshWeatherForecast();
+        });
+
+        $("#btn-refresh").click(function () {
+            console.log('refreshing...')
+            refreshWeatherForecast();
+        });
+
+        function refreshWeatherForecast() {
+            geocode($("#city-name").val(), mapboxgl.accessToken)
                 .then((coordinates) => {
                     mapbox.flyToLocation(coordinates);
                     return getProps(coordinates[1], coordinates[0]);
