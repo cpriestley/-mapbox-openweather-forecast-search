@@ -100,6 +100,19 @@ header>div {
 header>div>button {
     transition: 0.7s; /* Add a transition effect (when scrolling - and font size is decreased) */
 }
+
+#btn-modal {
+    position: absolute;
+    top: .3em;
+    right: 1.5em;
+}
+
+#btn-refresh  {
+    position: absolute;
+    top: .3em;
+    right: .3em;
+}
+
 #clouds {
     transition: 0.7s; /* Add a transition effect (when scrolling - and font size is decreased) */
 }
