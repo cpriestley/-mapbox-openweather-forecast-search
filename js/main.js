@@ -20,7 +20,6 @@ $(function () {
     });
 
     $("#btn-refresh").click(function () {
-        console.log('refreshing...')
         refreshWeatherForecast();
     });
 
@@ -43,11 +42,22 @@ $(function () {
             .then((forecast) => {
                 storedForecast = reduceForecast(forecast);
                 updateForecast(storedForecast);
+                $("#last-refresh").text("As of " + new Date().toLocaleTimeString());
             }, (error) => {
                 console.log(error);
             });
     }
 
+    /**
+     * @param current
+     * @param current.clouds
+     * @param current.main
+     * @param current.main.feels_like
+     * @param current.main.humidity
+     * @param current.main.temp
+     * @param current.weather
+     * @param current.wind.speed
+     */
     function updateCurrentWeather(current) {
         $("#location").text(current['name']);
         $("#temp").text(current.main.temp + ' ' + String.fromCharCode(176));
@@ -72,13 +82,16 @@ $(function () {
             $(`#day-${i + 1} > div:nth-child(3)`).text(high + ' ' + String.fromCharCode(176));
             let low = forecast[key].map(hr => hr.min).sort()[0];
             $(`#day-${i + 1} > div:nth-child(4)`).text(low + ' ' + String.fromCharCode(176));
-            //console.log(forecast[key]);
         }
         updateHourDetail(forecast[firstKey])
     }
 
     function updateHourDetail(data) {
-        console.log(data);
+        let date = data[0].date;
+        let partial = date.substring(0,3);
+        let weekday = convertPartial(partial);
+        let displayDate = date.replace(partial, weekday);
+        weekdayDateDisplay.text(displayDate);
         for (let i = 0; i < data.length; i++) {
             $(`#hr-${i + 1}-detail > div:nth-child(1)`).text(data[i].time);
             $(`#hr-${i + 1}-detail > div:nth-child(2) > img`).attr('src', "/media/" + data[i].icon + "@4x.png");
@@ -113,14 +126,14 @@ $(function () {
 
     function reduceForecast(forecast) {
         return forecast.list.map((hr) => {
-            let date = convertUTC(hr.dt).toDateString().split(' ');
+            let date = convertUTC(hr['dt']).toDateString().split(' ');
             date = date[0] + ', ' + month(date) + ' ' + date[2];
-            let time = convertUTC(hr.dt).toLocaleTimeString();
+            let time = convertUTC(hr['dt']).toLocaleTimeString();
             time = time.split(':')[0] + time.split(' ')[1]
-            let icon = hr.weather[0].icon;
-            let max = hr.main.temp_max;
-            let min = hr.main.temp_min;
-            let wind = hr.wind.speed;
+            let icon = hr.weather[0]['icon'];
+            let max = hr.main['temp_max'];
+            let min = hr.main['temp_min'];
+            let wind = hr.wind['speed'];
             return {date, time, icon, max, min, wind};
         })
             .reduce((acc, curr) => {
@@ -130,8 +143,7 @@ $(function () {
             }, {});
     }
 
-    function weekDay(date) {
-        let partial = date[0];
+    function convertPartial(partial) {
         switch (partial) {
             case 'Mon':
                 return 'Monday';
@@ -148,7 +160,11 @@ $(function () {
             case 'Sun':
                 return 'Sunday';
         }
+    }
 
+    function weekDay(date) {
+        let partial = date[0];
+        return convertPartial(partial)
     }
 
     function month(date) {
@@ -182,8 +198,11 @@ $(function () {
     }
 
     let date = new Date().toDateString().split(' ');
-    $("#weekday-date").text(weekDay(date) + ', ' + month(date) + ' ' + date[2]);
+    let weekdayDateDisplay = $("#weekday-date");
+    weekdayDateDisplay.text(weekDay(date) + ', ' + month(date) + ' ' + date[2]);
 
     mapbox.init();
 
 });
+
+import {mapbox} from "./map.js";
