@@ -19,9 +19,9 @@
 </div>
 <header id="header" class="text-white d-flex align-items-end position-fixed w-100">
     <div class="ms-5 d-flex display-1 w-100">
-        <span id="location">San Antonio, Texas</span>
+        <span id="location">Some Location</span>
         <!-- Button trigger modal -->
-        <button class="display-6 text-white mb-0 border-0 bg-transparent" type="button" data-bs-toggle="modal" data-bs-target="#fs-modal" id="btn-modal">
+        <button class="display-6 text-white mb-0 border-0 bg-transparent" type="button" data-bs-toggle="modal" data-bs-target="#fs-modal" data-toggle="tooltip" data-placement="bottom" title="Choose a location" id="btn-modal">
             <i class="fa fa-gear me-2"></i>
         </button>
         <!-- Button trigger refresh -->
@@ -34,10 +34,10 @@
     <div class="container-fluid bg-dark rounded-5 d-grid" id="top">
         <div class="container-fluid py-3 py-3 d-flex border-bottom" id="top-left">
             <div>
-                <h1 id="temp">54 &deg;</h1>
+                <h1 id="temp">-- &deg;</h1>
                 <p class="my-0" id="main">Drizzle</p>
                 <p class="my-0" id="description">Rain for 20m</p>
-                <p class="my-0" id="feels-like">Feels like 54 &deg;</p>
+                <p class="my-0" id="feels-like">Feels like -- &deg;</p>
                 <p class="my-0" id="last-refresh"></p>
             </div>
             <div>
@@ -48,32 +48,32 @@
             <div class="d-grid w-100" id="day-1" db-id="0">
                 <div>SUN</div>
                 <div><img src="./media/01d@4x.png" style="height:25px; width: 25px" alt=""></div>
-                <div>72 &deg;</div>
-                <div>54 &deg;</div>
+                <div>-- &deg;</div>
+                <div>-- &deg;</div>
             </div>
             <div class="d-grid w-100" id="day-2" db-id="1">
                 <div>MON</div>
                 <div><img src="./media/01d@4x.png" style="height:25px; width: 25px" alt=""></div>
-                <div>55 &deg;</div>
-                <div>41 &deg;</div>
+                <div>-- &deg;</div>
+                <div>-- &deg;</div>
             </div>
             <div class="d-grid w-100" id="day-3" db-id="2">
                 <div>TUE</div>
                 <div><img src="./media/01d@4x.png" style="height:25px; width: 25px" alt=""></div>
-                <div>46 &deg;</div>
-                <div>42 &deg;</div>
+                <div>-- &deg;</div>
+                <div>-- &deg;</div>
             </div>
             <div class="d-grid w-100" id="day-4" db-id="3">
                 <div>WED</div>
                 <div><img src="./media/01d@4x.png" style="height:25px; width: 25px" alt=""></div>
-                <div>43 &deg;</div>
-                <div>43 &deg;</div>
+                <div>-- &deg;</div>
+                <div>-- &deg;</div>
             </div>
             <div class="d-grid w-100" id="day-5" db-id="4">
                 <div>FRI</div>
                 <div><img src="./media/01d@4x.png" style="height:25px; width: 25px" alt=""></div>
-                <div>60 &deg;</div>
-                <div>39 &deg;</div>
+                <div>-- &deg;</div>
+                <div>-- &deg;</div>
             </div>
         </div>
         <div class="container-fluid py-3 d-flex justify-content-around">
@@ -87,58 +87,58 @@
         <div class="d-flex justify-content-around" id="hr-1-detail">
             <div class="col-1 text-nowrap">12AM</div>
             <div class="col-1 text-nowrap"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
-            <div class="col-1 text-nowrap">58 &deg;</div>
-            <div class="col-1 text-nowrap">42 &deg;</div>
-            <div class="col-1 text-nowrap">3 mph</div>
+            <div class="col-1 text-nowrap">-- &deg;</div>
+            <div class="col-1 text-nowrap">-- &deg;</div>
+            <div class="col-1 text-nowrap">-- mph</div>
         </div>
         <div class="d-flex justify-content-around" id="hr-2-detail">
             <div class="col-1 text-nowrap">3AM</div>
             <div class="col-1 text-nowrap"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
-        <div class="col-1 text-nowrap">58 &deg;</div>
-            <div class="col-1 text-nowrap">42 &deg;</div>
-            <div class="col-1 text-nowrap">3 mph</div>
+        <div class="col-1 text-nowrap">-- &deg;</div>
+            <div class="col-1 text-nowrap">-- &deg;</div>
+            <div class="col-1 text-nowrap">-- mph</div>
         </div>
         <div class="d-flex justify-content-around" id="hr-3-detail" >
             <div class="col-1 text-nowrap">6AM</div>
             <div class="col-1 text-nowrap"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
-            <div class="col-1 text-nowrap">58 &deg;</div>
-            <div class="col-1 text-nowrap">42 &deg;</div>
-            <div class="col-1 text-nowrap">3 mph</div>
+            <div class="col-1 text-nowrap">-- &deg;</div>
+            <div class="col-1 text-nowrap">-- &deg;</div>
+            <div class="col-1 text-nowrap">-- mph</div>
         </div>
         <div class="d-flex justify-content-around" id="hr-4-detail" >
             <div class="col-1 text-nowrap">9AM</div>
             <div class="col-1 text-nowrap"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
-            <div class="col-1 text-nowrap">58 &deg;</div>
-            <div class="col-1 text-nowrap">42 &deg;</div>
-            <div class="col-1 text-nowrap">3 mph</div>
+            <div class="col-1 text-nowrap">-- &deg;</div>
+            <div class="col-1 text-nowrap">-- &deg;</div>
+            <div class="col-1 text-nowrap">-- mph</div>
         </div>
         <div class="d-flex justify-content-around" id="hr-5-detail" >
             <div class="col-1 text-nowrap">12PM</div>
             <div class="col-1 text-nowrap"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
-            <div class="col-1 text-nowrap">58 &deg;</div>
-            <div class="col-1 text-nowrap">42 &deg;</div>
-            <div class="col-1 text-nowrap">3 mph</div>
+            <div class="col-1 text-nowrap">-- &deg;</div>
+            <div class="col-1 text-nowrap">-- &deg;</div>
+            <div class="col-1 text-nowrap">-- mph</div>
         </div>
         <div class="d-flex justify-content-around" id="hr-6-detail" >
             <div class="col-1 text-nowrap">3PM</div>
             <div class="col-1 text-nowrap"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
-            <div class="col-1 text-nowrap">58 &deg;</div>
-            <div class="col-1 text-nowrap">42 &deg;</div>
-            <div class="col-1 text-nowrap">3 mph</div>
+            <div class="col-1 text-nowrap">-- &deg;</div>
+            <div class="col-1 text-nowrap">-- &deg;</div>
+            <div class="col-1 text-nowrap">-- mph</div>
         </div>
         <div class="d-flex justify-content-around" id="hr-7-detail" >
             <div class="col-1 text-nowrap">6PM</div>
             <div class="col-1 text-nowrap"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
-            <div class="col-1 text-nowrap">58 &deg;</div>
-            <div class="col-1 text-nowrap">42 &deg;</div>
-            <div class="col-1 text-nowrap">3 mph</div>
+            <div class="col-1 text-nowrap">-- &deg;</div>
+            <div class="col-1 text-nowrap">-- &deg;</div>
+            <div class="col-1 text-nowrap">-- mph</div>
         </div>
         <div class="d-flex justify-content-around" id="hr-8-detail" >
             <div class="col-1 text-nowrap">9PM</div>
             <div class="col-1 text-nowrap"><img src="media/02d@4x.png" style="height: 25px; width: 25px;" alt=""></div>
-            <div class="col-1 text-nowrap">58 &deg;</div>
-            <div class="col-1 text-nowrap">42 &deg;</div>
-            <div class="col-1 text-nowrap">3 mph</div>
+            <div class="col-1 text-nowrap">-- &deg;</div>
+            <div class="col-1 text-nowrap">-- &deg;</div>
+            <div class="col-1 text-nowrap">-- mph</div>
         </div>
     </div>
     <div class="container bg-dark rounded-5 d-grid p-0" id="bottom">
