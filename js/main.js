@@ -1,40 +1,9 @@
 "use strict";
 import {weather} from "./weather.js";
-import {mapbox} from "./map.js";
 
 $(function () {
 
     let storedForecast;
-
-    $("#breezy").click(function (event) {
-        event.preventDefault();
-        let opts = {
-            enableHighAccuracy: true,
-            timeout: 1000 * 10, //10 seconds
-            maximumAge: 1000 * 60 * 5, // 5 minutes
-        }
-        navigator
-            .geolocation
-            .getCurrentPosition(success, (error => console.log(error)), opts);
-    });
-
-    function success(position) {
-        let latitude = position.coords.latitude;
-        let longitude = position.coords.longitude;
-        let props = getProps(latitude, longitude);
-        mapbox.flyToLocation([longitude, latitude]);
-        weather.fetchCurrentWeather(props)
-            .then((res) => {
-                console.log(res);
-            });
-        weather.fetchWeatherForecast(props)
-            .then((res) => {
-                console.log(res);
-                let temps = weather.temps();
-                chart.destroy();
-                chart.update(temps);
-            });
-    }
 
     function getProps(latitude, longitude) {
         return weather.props({latitude, longitude});

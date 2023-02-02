@@ -1,4 +1,9 @@
 @charset "UTF-8";
+/*
+ * Cloud animation elements were taken from Lorin Tackett's project
+ * Lorin Tackett, July 2013
+ * http://lorintackett.com
+ */
 
 :root {
     --bs-blue: #0d6efd;
@@ -36,11 +41,12 @@
     background-color: var(--bs-gray-dark) !important;
 }
 
-/* What do you have to be scared of?
- *
- * Lorin Tackett, July 2013
- * http://lorintackett.com
- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 @keyframes clouds-loop-1 {
     to {
         background-position: -1000px 0;
@@ -101,6 +107,11 @@ header>div>button {
     transition: 0.7s; /* Add a transition effect (when scrolling - and font size is decreased) */
 }
 
+#current-icon {
+    height: 9em;
+    width: 9em;
+}
+
 #btn-modal {
     position: absolute;
     top: .3em;
@@ -111,6 +122,11 @@ header>div>button {
     position: absolute;
     top: .3em;
     right: .3em;
+}
+
+#map {
+    width: auto;
+    height: 250px;
 }
 
 #clouds {
@@ -147,4 +163,10 @@ html, body {
     right: 0;
     left: 0;
     height: 16em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    :root {
+        scroll-behavior: smooth;
+    }
 }
