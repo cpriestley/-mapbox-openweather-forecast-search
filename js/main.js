@@ -26,6 +26,11 @@ $(function () {
         refreshWeatherForecast($("#city-name").val());
     });
 
+    $('#btn-refresh, #btn-modal').hover(
+        function(){ $(this).addClass('fa-spin') },
+        function(){ $(this).removeClass('fa-spin') }
+    )
+
     function refreshWeatherForecast(cityName) {
         geocode(cityName, mapboxgl.accessToken)
             .then((coordinates) => {
