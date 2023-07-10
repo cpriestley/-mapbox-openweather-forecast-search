@@ -5,6 +5,9 @@ $(function () {
 
     let storedForecast;
 
+    //Initial forecast for San Antonio, TX
+    refreshWeatherForecast('San Antonio, TX');
+
     function getProps(latitude, longitude) {
         return weather.props({latitude, longitude});
     }
@@ -16,15 +19,15 @@ $(function () {
     });
 
     $("#search").click(function () {
-        refreshWeatherForecast();
+        refreshWeatherForecast($("#city-name").val());
     });
 
     $("#btn-refresh").click(function () {
-        refreshWeatherForecast();
+        refreshWeatherForecast($("#city-name").val());
     });
 
-    function refreshWeatherForecast() {
-        geocode($("#city-name").val(), mapboxgl.accessToken)
+    function refreshWeatherForecast(cityName) {
+        geocode(cityName, mapboxgl.accessToken)
             .then((coordinates) => {
                 mapbox.flyToLocation(coordinates);
                 return getProps(coordinates[1], coordinates[0]);
