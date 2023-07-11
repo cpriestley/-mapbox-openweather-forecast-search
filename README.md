@@ -1,5 +1,9 @@
-# mapbox-openweather-forecast-search
-a mobile-first web app to display a five-day forecast for the user's current city or a specific location.
+# Breezy Forecasts
+a mobile-first web app to display a five-day forecast for the user's current city or a specific location.  
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c5441dc0-e627-404d-a0e4-06665b99b50d/deploy-status)](https://app.netlify.com/sites/breezy-forecasts/deploys?branch=main)
+### Live Site  
+https://breezy-forecasts.netlify.app/
 
 ## Features
 - Current weather details include
